@@ -18,11 +18,9 @@ if (string.IsNullOrWhiteSpace(modelName)) modelName = "gpt-oss:20b";
 
 Console.WriteLine($"Conectando a Ollama en {endpoint} con el modelo {modelName}...\n");
 
-// Crear AIAgent usando OllamaApiClient - cast explícito a IChatClient
-IChatClient chatClient = (IChatClient)new OllamaApiClient(new Uri(endpoint), modelName);
-AIAgent agent = chatClient.CreateAIAgent(
-	instructions: "Sos 'OllamaBasic', un asistente claro y directo. Respondé en español rioplatense con ejemplos concretos cuando sirva.",
-	name: "OllamaBasic");
+// Get a chat client for Ollama and use it to construct an AIAgent.
+AIAgent agent = new OllamaApiClient(new Uri(endpoint), modelName)
+	.CreateAIAgent(instructions: "Sos 'OllamaBasic', un asistente claro y directo. Respondé en español rioplatense con ejemplos concretos cuando sirva.", name: "OllamaBasic");
 
 Console.WriteLine("> Prompt: Escribí un verso breve, estilo milonga, sobre un agente corriendo en tu máquina con Ollama.\n");
 var reply = await agent.RunAsync("Escribí un verso breve, estilo milonga, sobre un agente corriendo en tu máquina con Ollama.");

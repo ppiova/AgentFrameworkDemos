@@ -59,8 +59,8 @@ dotnet run
 
 - **Microsoft.Agents.AI** (1.0.0-preview.251028.1) - Core del Agent Framework
 - **Microsoft.Extensions.AI** (9.10.2) - Abstracciones de AI
-- **OllamaSharp** (3.0.8) - Cliente para Ollama API
-- **Microsoft.Extensions.AI.Ollama** (9.7.0-preview.1.25356.2) - Extensiones Ollama
+- **OllamaSharp** (5.x) - Cliente para Ollama API con soporte para IChatClient
+- **OpenAI** (2.6.0) - SDK base de OpenAI
 
 ## 🔍 Qué hace el ejemplo
 

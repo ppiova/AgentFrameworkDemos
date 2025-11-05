@@ -1,25 +1,26 @@
-// Sample básico con Microsoft Agent Framework usando un modelo local de Ollama (gpt-oss:20b)
+// Sample básico con Microsoft Agent Framework usando un modelo local de Ollama
+// Basado en: https://github.com/microsoft/agent-framework/blob/main/dotnet/samples/GettingStarted/AgentProviders/Agent_With_Ollama/Program.cs
 // Prerrequisitos:
 //   1) Instalar Ollama: https://ollama.com/download
-//   2) Descargar el modelo: `ollama run gpt-oss:20b` (primera vez tarda)
-//   3) (Opcional) OLLAMA_ENDPOINT=http://localhost:11434
+//   2) Descargar el modelo: `ollama pull gpt-oss:20b` (primera vez tarda)
+//   3) Variables de entorno: OLLAMA_ENDPOINT y OLLAMA_MODEL_NAME
 // Ejecutar: dotnet run --project samples/Integrations/Ollama/AgentDemos.Integrations.Ollama.csproj
 
+using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
-using System.ClientModel;
-
-var model = Environment.GetEnvironmentVariable("OLLAMA_MODEL")?.Trim();
-if (string.IsNullOrWhiteSpace(model)) model = "gpt-oss:20b";
+using OllamaSharp;
 
 var endpoint = Environment.GetEnvironmentVariable("OLLAMA_ENDPOINT")?.Trim();
 if (string.IsNullOrWhiteSpace(endpoint)) endpoint = "http://localhost:11434";
 
-Console.WriteLine($"Conectando a Ollama en {endpoint} con el modelo {model}...\n");
+var modelName = Environment.GetEnvironmentVariable("OLLAMA_MODEL_NAME")?.Trim();
+if (string.IsNullOrWhiteSpace(modelName)) modelName = "gpt-oss:20b";
 
-// Usar el cliente Ollama directo
-IChatClient chat = new OllamaChatClient(new Uri(endpoint), model);
+Console.WriteLine($"Conectando a Ollama en {endpoint} con el modelo {modelName}...\n");
 
-var agent = chat.CreateAIAgent(
+// Crear AIAgent usando OllamaApiClient - cast explícito a IChatClient
+IChatClient chatClient = (IChatClient)new OllamaApiClient(new Uri(endpoint), modelName);
+AIAgent agent = chatClient.CreateAIAgent(
 	instructions: "Sos 'OllamaBasic', un asistente claro y directo. Respondé en español rioplatense con ejemplos concretos cuando sirva.",
 	name: "OllamaBasic");
 

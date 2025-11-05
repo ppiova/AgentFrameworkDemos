@@ -14,7 +14,7 @@ var endpoint = Environment.GetEnvironmentVariable("OLLAMA_ENDPOINT")?.Trim();
 if (string.IsNullOrWhiteSpace(endpoint)) endpoint = "http://localhost:11434";
 
 var modelName = Environment.GetEnvironmentVariable("OLLAMA_MODEL_NAME")?.Trim();
-if (string.IsNullOrWhiteSpace(modelName)) modelName = "gpt-oss:20b";
+if (string.IsNullOrWhiteSpace(modelName)) modelName = "phi4";
 
 Console.WriteLine($"Conectando a Ollama en {endpoint} con el modelo {modelName}...\n");
 

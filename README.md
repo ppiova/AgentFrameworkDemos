@@ -5,7 +5,7 @@ Ejemplos mínimos en C# para demostrar Microsoft Agent Framework con Azure OpenA
 ## 📋 Tabla de Contenidos
 
 - [Requisitos](#requisitos)
-- [Configuración rápida](#configuración-rápida-powershell)
+- [Configuración rápida (PowerShell)](#configuración-rápida-powershell)
 - [Uso recomendado: launcher + .env](#uso-recomendado-launcher--env)
 - [Cómo ejecutar (directo por proyecto)](#cómo-ejecutar-directo-por-proyecto)
 - [Estructura y ejemplos](#estructura-y-ejemplos)

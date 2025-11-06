@@ -2,6 +2,19 @@
 
 Ejemplos mínimos en C# para demostrar Microsoft Agent Framework con Azure OpenAI como proveedor.
 
+## 📋 Tabla de Contenidos
+
+- [Requisitos](#requisitos)
+- [Configuración rápida (PowerShell)](#configuración-rápida-powershell)
+- [Uso recomendado: launcher + .env](#uso-recomendado-launcher--env)
+- [Cómo ejecutar (directo por proyecto)](#cómo-ejecutar-directo-por-proyecto)
+- [Estructura y ejemplos](#estructura-y-ejemplos)
+- [Recorrido recomendado (1 → 10)](#recorrido-recomendado-1--10)
+- [Paquetes clave](#paquetes-clave)
+- [Recursos](#recursos)
+- [Problemas comunes](#problemas-comunes)
+- [Desarrollador](#desarrollador)
+
 ## Requisitos
 
 - .NET 8 SDK
@@ -180,3 +193,11 @@ Desde la carpeta raíz del workspace:
 	- Instala un servidor MCP (por ejemplo, alguno oficial o de la comunidad) y obtén su comando de arranque.
 	- Reemplaza `MockMcpClient` por un cliente MCP real (o añade una implementación que hable JSON-RPC/stdio o WebSocket según el servidor) dentro del proyecto `samples/Integrations/MCP/Basic`.
 	- Opcionalmente, expón herramientas específicas (por nombre y parámetros) como funciones del agente, en lugar del wrapper genérico `call_mcp_tool`.
+
+---
+
+## Desarrollador
+
+**Pablo Piovano** - Desarrollador principal del proyecto
+
+Este proyecto de demostración fue creado para mostrar ejemplos prácticos del uso de Microsoft Agent Framework con Azure OpenAI en .NET.
